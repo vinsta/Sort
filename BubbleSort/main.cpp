@@ -6,15 +6,17 @@ using namespace std;
 Go through the list, compare the two neighbor value, if the first is smaller than the second,
 keep them, otherwise, exchange them.
 Improve: if no change in a loop, it means it is already a sorted list, so stop the loops.
+Improve: if max changed id in a loop is x, then the list after id x is already a sorted list, no need to go through again.
 */
 void bubbleSort(int val[], int n)
 {
     bool changed = true;
+    int lastChangedId = n;
     for (int i = n; i > 0 && changed; i--)
     {
         changed = false;
         int j;
-        for (j = 0; j < i; j++)
+        for (j = 0; j < lastChangedId; j++)
         {
             if (val[j] > val[j+1])
             {
@@ -22,6 +24,7 @@ void bubbleSort(int val[], int n)
                 swap(val[j], val[j+1]);
             }
         }
+        lastChangedId = j-1;
         cout << "After loop " << n-i << ":" << endl;
         for (int k = 0; k < n; k++)
         {
