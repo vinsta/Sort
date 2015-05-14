@@ -5,15 +5,20 @@ using namespace std;
 /*
 Go through the list, compare the two neighbor value, if the first is smaller than the second,
 keep them, otherwise, exchange them.
+Improve: if no change in a loop, it means it is already a sorted list, so stop the loops.
 */
 void bubbleSort(int val[], int n)
 {
-    for (int i = n; i > 0; i--)
+    bool changed = true;
+    for (int i = n; i > 0 && changed; i--)
     {
-        for (int j = 0; j < i; j++)
+        changed = false;
+        int j;
+        for (j = 0; j < i; j++)
         {
             if (val[j] > val[j+1])
             {
+                changed = true;
                 swap(val[j], val[j+1]);
             }
         }
