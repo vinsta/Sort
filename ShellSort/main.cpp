@@ -17,8 +17,7 @@ void shellSort(int val[], int n)
         {
             if (val[i] < val[i-step])
             {
-                int temp = val[i];
-                for (int j = i; j >= step && (val[j-step] > temp); j = j-step)
+                for (int j = i; j >= step && (val[j-step] > val[j]); j = j-step)
                 {
                     swap(val[j], val[j-step]);
                 }

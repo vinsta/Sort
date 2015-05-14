@@ -8,13 +8,11 @@ move the sorted list to empty the position and put the value into the position
 */
 void insertSort(int val[], int n)
 {
-    int temp, j;
     for (int i = 1; i < n; i++)
     {
         if (val[i] < val[i-1])
         {
-            temp = val[i];
-            for (j = i; j > 0 && (val[j-1] > temp); j--)
+            for (int j = i; j > 0 && (val[j-1] > val[j]); j--)
             {
                 swap(val[j], val[j-1]);
             }
