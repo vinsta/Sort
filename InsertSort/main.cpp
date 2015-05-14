@@ -16,17 +16,15 @@ void insertSort(int val[], int n)
             temp = val[i];
             for (j = i; j > 0 && (val[j-1] > temp); j--)
             {
-                //val[j] = val[j-1];
                 swap(val[j], val[j-1]);
             }
-            //val[j] = temp;
         }
-        cout << "After loop " << i << ":" << endl;
-        for (int k = 0; k < n; k++)
-        {
-            cout << val[k] << " ";
-        }
-        cout << endl;
+        //cout << "After loop " << i << ":" << endl;
+        //for (int k = 0; k < n; k++)
+        //{
+        //    cout << val[k] << " ";
+        //}
+        //cout << endl;
     }
 }
 
